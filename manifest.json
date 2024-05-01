@@ -1,0 +1,11 @@
+{
+  "manifest_version": 3,
+  "name": "Key Press Monitor by Harvi",
+  "version": "1.0",
+  "description": "Displays the key pressed by the user on real-time",
+  "permissions": ["activeTab"],
+  "action": {
+    "default_popup": "index.html",
+    "default_icon": "icon.png"
+  }
+}
