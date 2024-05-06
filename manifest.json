@@ -3,9 +3,16 @@
   "name": "Key Press Monitor by Harvi",
   "version": "1.0",
   "description": "Displays the key pressed by the user on real-time",
-  "permissions": ["activeTab"],
+  "permissions": ["activeTab", "scripting"],
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["./script/keypress/script.js"],
+      "css": ["./script/keypress/style.css"]
+    }
+  ],
   "action": {
     "default_popup": "index.html",
-    "default_icon": "icon.png"
+    "default_icon": "./assets/icon.png"
   }
 }

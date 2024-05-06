@@ -1,0 +1,17 @@
+ul {
+  list-style: none;
+  position: absolute;
+  bottom: 100px;
+  right: 100px;
+}
+
+li {
+  padding: 10px;
+  border: 1px solid gray;
+  font-weight: bold;
+}
+
+.newTestItem {
+  font-size: 20px;
+  color: red;
+}
