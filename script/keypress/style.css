@@ -1,17 +1,25 @@
-ul {
+#keyboardButtonContainer {
   list-style: none;
   position: absolute;
-  bottom: 100px;
-  right: 100px;
+  bottom: 50px;
+  right: 50px;
+  z-index: 9999;
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 }
 
-li {
-  padding: 10px;
-  border: 1px solid gray;
-  font-weight: bold;
-}
-
-.newTestItem {
+.keyboardButton {
+  width: fit-content;
+  padding: 10px 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f0f0f0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   font-size: 20px;
-  color: red;
+  color: #333;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
 }
