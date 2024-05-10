@@ -3,3 +3,45 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+.toggle-switch {
+  position: relative;
+  width: 60px;
+  height: 34px;
+}
+
+.toggle-input {
+  display: none;
+}
+
+.toggle-label {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  border-radius: 34px;
+  transition: background-color 0.4s;
+}
+
+.toggle-input:checked + .toggle-label {
+  background-color: #2196f3;
+}
+
+.toggle-label:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  border-radius: 50%;
+  transition: transform 0.4s;
+}
+
+.toggle-input:checked + .toggle-label:before {
+  transform: translateX(26px);
+}
