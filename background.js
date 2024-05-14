@@ -9,6 +9,10 @@ chrome.runtime.onMessage.addListener(function (message) {
       target: { tabId },
       files: ["content.js"],
     });
+    chrome.scripting.insertCSS({
+      target: { tabId },
+      files: ["content.css"],
+    });
     doesScriptInjected[tabId] = true;
   }
 });

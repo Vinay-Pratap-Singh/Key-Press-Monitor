@@ -1,8 +1,20 @@
 let keyboardButtonContainer = null;
 const buttonList = [];
 
-// for first time
+// for first time render
 handleToggleTrueState();
+
+function createListItem(text) {
+  const listItem = document.createElement("li");
+  listItem.classList.add("keyboardButton");
+  listItem.innerText = text;
+  buttonList.push(listItem);
+  renderKeys();
+  setTimeout(() => {
+    buttonList.shift();
+    renderKeys();
+  }, 2500);
+}
 
 function renderKeys() {
   if (!keyboardButtonContainer) return;
@@ -13,15 +25,28 @@ function renderKeys() {
 }
 
 function handleKeyPress(event) {
-  const listItem = document.createElement("li");
-  listItem.classList.add("keyboardButton");
-  listItem.innerText = event.key;
-  buttonList.push(listItem);
-  renderKeys();
-  setTimeout(() => {
-    buttonList.shift();
-    renderKeys();
-  }, 2500);
+  if (
+    event.key === "Control" ||
+    event.key === "Alt" ||
+    event.key === "Shift" ||
+    event.key === "Meta"
+  ) {
+    return;
+  }
+
+  if (event.ctrlKey || event.altKey || event.shiftKey || event.metaKey) {
+    let shortcutString = "";
+    if (event.ctrlKey) shortcutString += "Ctrl+";
+    if (event.altKey) shortcutString += "Alt+";
+    if (event.shiftKey) shortcutString += "Shift+";
+    if (event.metaKey) shortcutString += "Meta+";
+    shortcutString += event.key;
+    createListItem(shortcutString);
+    return;
+  }
+
+  const text = event.key;
+  createListItem(text);
 }
 
 function handleToggleTrueState() {
