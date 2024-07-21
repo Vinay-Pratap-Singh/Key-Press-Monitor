@@ -4,17 +4,17 @@
   box-sizing: border-box;
 }
 
-.toggle-switch {
+.toggleSwitch {
   position: relative;
   width: 60px;
   height: 34px;
 }
 
-.toggle-input {
+.toggleInput {
   display: none;
 }
 
-.toggle-label {
+.toggleLabel {
   position: absolute;
   cursor: pointer;
   top: 0;
@@ -26,11 +26,11 @@
   transition: background-color 0.4s;
 }
 
-.toggle-input:checked + .toggle-label {
+.toggleInput:checked + .toggleLabel {
   background-color: #2196f3;
 }
 
-.toggle-label:before {
+.toggleLabel:before {
   position: absolute;
   content: "";
   height: 26px;
@@ -42,6 +42,32 @@
   transition: transform 0.4s;
 }
 
-.toggle-input:checked + .toggle-label:before {
+.toggleInput:checked + .toggleLabel:before {
   transform: translateX(26px);
+}
+
+/* Styles for the select element */
+.keySizeContainer select {
+  width: 200px;
+  padding: 10px;
+  font-size: 14px;
+  color: #333;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #f9f9f9;
+  transition: border-color 0.3s ease-in-out;
+}
+
+.keySizeContainer select:focus {
+  outline: none;
+  border-color: #007bff;
+}
+
+.keySizeContainer select option {
+  padding: 10px;
+  font-size: 14px;
+}
+
+.keySizeContainer select:hover {
+  border-color: #0056b3;
 }

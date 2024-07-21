@@ -1,5 +1,9 @@
 let keyboardButtonContainer = null;
 const buttonList = [];
+let listStyle = {
+  padding: "6px 12px",
+  fontSize: "16px",
+};
 
 // for first time render
 handleToggleTrueState();
@@ -8,7 +12,8 @@ function createListItem(text) {
   const listItem = document.createElement("li");
   listItem.classList.add("keyboardButton");
   listItem.innerText = text;
-  buttonList.push(listItem);
+  // listItem.style.padding = listStyle.padding;
+  // listItem.style.fontSize = listStyle.fontSize;
   renderKeys();
   setTimeout(() => {
     buttonList.shift();
@@ -70,7 +75,19 @@ function handleToggleFalseState() {
 chrome.storage.onChanged.addListener(function (changes, namespace) {
   if (namespace === "sync" && "toggleState" in changes) {
     const newToggleState = changes.toggleState.newValue;
-    console.log("Toggle state changed:", newToggleState);
     newToggleState ? handleToggleTrueState() : handleToggleFalseState();
+  }
+});
+
+chrome.runtime.onMessage.addListener((message) => {
+  const { type } = message;
+
+  switch (type) {
+    case "selectedSize": {
+      const { selectedSize } = message;
+      listStyle = { ...selectedSize };
+      console.log(type, "content ke andar hu", selectedSize);
+      break;
+    }
   }
 });

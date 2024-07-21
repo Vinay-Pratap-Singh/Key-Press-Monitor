@@ -7,9 +7,20 @@
     <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
-    <div class="toggle-switch">
-      <input type="checkbox" id="toggle" class="toggle-input" />
-      <label for="toggle" class="toggle-label"></label>
+    <div class="toggleSwitch">
+      <input type="checkbox" id="toggle" class="toggleInput" />
+      <label for="toggle" class="toggleLabel" />
+    </div>
+
+    <div class="keySizeContainer">
+      <label for="keySizeDropdown">Select key size</label>
+      <select name="keySize" id="keySizeDropdown">
+        <option value="extraSmall">Extra Small</option>
+        <option value="small">Small</option>
+        <option value="medium" selected>Medium</option>
+        <option value="large">Large</option>
+        <option value="extraLarge">Extra Large</option>
+      </select>
     </div>
   </body>
   <script src="./script.js"></script>
